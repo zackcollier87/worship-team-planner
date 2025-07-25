@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worship Team &amp; Discipleship</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Optional: Load Firebase for online storage -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script defer src="script.js"></script>
 </head>
 <body>
@@ -15,6 +18,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#teachings">Teachings</a></li>
                 <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#events">Events</a></li>
                 <li><a href="#resources">Resources</a></li>
             </ul>
         </nav>
@@ -65,6 +69,40 @@
                 <button type="submit">Add to Schedule</button>
             </form>
             <ul id="schedule-list"></ul>
+        </section>
+
+        <!-- Events & Setlists Section -->
+        <section id="events">
+            <h2>Event &amp; Setlist Manager</h2>
+            <div id="event-manager">
+                <h3>Add Event</h3>
+                <form id="event-form">
+                    <input type="text" id="event-name" placeholder="Event name" required>
+                    <input type="date" id="event-date" required>
+                    <button type="submit">Add Event</button>
+                </form>
+                <ul id="event-list"></ul>
+            </div>
+
+            <div id="setlist-manager" style="display: none;">
+                <h3>Setlists for <span id="current-event-name"></span></h3>
+                <form id="setlist-form">
+                    <input type="text" id="setlist-name" placeholder="Setlist name" required>
+                    <button type="submit">Add Setlist</button>
+                </form>
+                <ul id="setlist-list"></ul>
+            </div>
+
+            <div id="song-manager" style="display: none;">
+                <h3>Songs for <span id="current-setlist-name"></span></h3>
+                <form id="song-form">
+                    <input type="text" id="song-title" placeholder="Song title" required>
+                    <input type="file" id="song-pdf" accept="application/pdf" required>
+                    <input type="url" id="song-youtube" placeholder="YouTube link">
+                    <button type="submit">Add Song</button>
+                </form>
+                <ul id="song-list"></ul>
+            </div>
         </section>
 
         <!-- Resources Section -->
